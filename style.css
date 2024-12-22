@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  padding: 0 10px;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6e7cbb, #3949ab);
+  flex-direction: column;
+}
+
+::selection {
+  color: #fff;
+  background: #3498DB;
+}
+
+.wrapper {
+  height: 270px;
+  max-width: 420px;
+  background: url('C:/Users/Khushi J Shetty/OneDrive/Desktop/Major Project/QR Code generator/.dist/qr.jpeg') center/cover no-repeat; /* Background image */
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  transform: scale(1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.wrapper:hover {
+  transform: scale(1.08); /* Slight zoom-in effect */
+}
+
+.wrapper.active {
+  height: 530px;
+}
+
+header {
+  margin-bottom: 20px; /* Reduced margin for smaller title box */
+  background: rgba(62, 123, 128, 0.8); /* Semi-transparent background to see image behind */
+  padding: 15px; /* Reduced padding for smaller header */
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Header shadow */
+  transition: background 0.3s ease;
+}
+
+header:hover {
+  background: rgba(111, 52, 66, 0.8); /* Semi-transparent hover effect */
+}
+
+header h1 {
+  font-size: 28px; /* Smaller title */
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+header p {
+  margin-top: 5px;
+  color: #f7f7f7;
+  font-size: 16px; /* Slightly smaller subtitle */
+}
+
+.wrapper .form {
+  margin: 20px 0 25px;
+  text-align: center;
+}
+
+.form :where(input, button) {
+  width: 100%;
+  height: 55px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+  padding: 0 20px;
+}
+
+.form input {
+  font-size: 18px;
+  color: #333;
+  background: #f9f9f9;
+  border: 2px solid #ddd;
+}
+
+.form input:focus {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  border-color: #2e678c;
+}
+
+.form input::placeholder {
+  color: #bbb;
+}
+
+.form button {
+  color: #fff;
+  cursor: pointer;
+  font-size: 17px;
+  background: #44e14e;
+  border: 2px solid #44e14e;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Soft button shadow */
+}
+
+.form button:hover {
+  background: #38c036;
+  transform: translateY(-5px); /* Button lift effect */
+}
+
+.qr-code {
+  opacity: 0;
+  display: flex;
+  padding: 35px 0;
+  border-radius: 12px;
+  align-items: center;
+  pointer-events: none;
+  justify-content: center;
+  transition: opacity 0.5s ease-in-out, transform 0.3s ease;
+}
+
+.wrapper.active .qr-code {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1.05); /* Zoom effect on the QR code */
+}
+
+.qr-code img {
+  width: 180px;
+  border-radius: 12px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.qr-code img:hover {
+  transform: scale(1.15); /* Enlarge QR code slightly on hover */
+}
+
+@media (max-width: 430px) {
+  .wrapper {
+    height: 280px;
+    padding: 20px;
+  }
+
+  .wrapper.active {
+    height: 520px;
+  }
+
+  header h1 {
+    font-size: 26px; /* Smaller title for mobile */
+  }
+
+  header p {
+    font-size: 15px;
+  }
+
+  .form :where(input, button) {
+    height: 50px;
+  }
+
+  .qr-code img {
+    width: 160px;
+  }
+}
